@@ -1,0 +1,528 @@
+<Gerenciador>: 
+    
+
+    Menu:
+        name: "Menu"
+
+    Login:
+        name: "Login"
+        
+    Register:
+        name: "Register"
+
+    SkinAviao:
+        name: "SkinAviao"
+
+    SkinMapa:
+        name: "SkinMapa"
+
+    Jogar:
+        name: "Jogar"
+
+    MenuJogar:
+        name:"MenuJogar"
+   
+
+<Menu>:
+    MDFloatLayout:
+        FitImage:
+            size_hint_y: 1
+            source: 'assets/background.png'
+        Image:
+            source: 'assets/planeYellow2.png'
+            pos_hint: {'center_x': .50, 'center_y': .50}
+        MDLabel:
+            text:"Flappy Bird"
+            font_name: 'BPoppins'
+            font_size: "23sp"
+            pos_hint: {'center_y': .80}
+            halign:"center"
+            color: rgba(34,34,34,255)
+        MDLabel:
+            text:"Seja bem vindo"
+            font_name: 'MPoppins'
+            font_size: "13sp"
+            size_hint_x: .85
+            pos_hint: {'center_x':.5,'center_y': .38}
+            halign:"center"
+            color: rgba(127,127,127,255)
+        Button:
+            text:'LOGIN'
+            size_hint: .66,.065
+            pos_hint: {'center_x': .5, 'center_y': .18}
+            background_color:0,0,0,0
+            font_name:"BPoppins"
+            on_release: 
+                app.root.current = "Login"
+            canvas.before:
+                Color:
+                    rgb: rgba(52,0,231,255)
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [5]
+
+        Button:
+            text:'Registrar'
+            size_hint: .66,.065
+            pos_hint: {'center_x': .5, 'center_y': .09}
+            background_color:0,0,0,0
+            font_name:"BPoppins"
+            color: rgba(52,0,231,255)
+            on_release: 
+                app.root.current = "Register"
+            canvas.before:
+                Color:
+                    rgb: rgba(52,0,231,255)
+                Line:
+                    width: 1.2
+                    rounded_rectangle: self.x , self.y , self.width , self.height , 5, 5, 5, 5, 100
+
+<Login>
+    MDFloatLayout:
+        FitImage:
+            size_hint_y: 1
+            source: 'assets/background.png'
+        MDIconButton:
+            icon:"assets/tapLeft.png"
+            pos_hint: {'center_y': .95}
+            icon_size:"40sp"
+            on_release:
+                app.root.current = "Menu"
+        MDLabel:
+            text:"Seja bem vindo"
+            font_name: 'MPoppins'
+            font_size: "26sp"
+            size_hint_x: .85
+            pos_hint: {'center_x':.5,'center_y': .85}
+            halign:"center"
+            color: rgba(0,0,59,255)
+        MDLabel:
+            text:"Faça o login para jogar"
+            font_name: 'BPoppins'
+            font_size: "15sp"
+            pos_hint: {'center_x':.50,'center_y': .79}
+            halign:"center"
+            color: rgba(133,133,133,255)
+        MDFloatLayout:
+            size_hint: .7,.07
+            pos_hint: {'center_x': .5, 'center_y': .60}
+            TextInput:
+                id: login
+                hint_text:"Login"
+                font_name:"MPoppins"
+                size_hint_y:.75
+                pos_hint: {'center_x': .43, 'center_y': .5}
+                background_color:1, 1, 1, 0
+                foreground_color:rgba (0, 0, 59, 255)
+                cursor_color: rgba(0, 0, 59, 255)
+                font_size:"14sp"
+                cursor_width:"2sp"
+                multitline: False
+            MDFloatLayout:
+                pos_hint: {'center_x': .45, 'center_y': 0}
+                size_hint_y: .03
+                md_bg_color: rgba(178, 178, 178, 255)
+
+        MDFloatLayout:
+            size_hint: .7,.07
+            pos_hint: {'center_x': .5, 'center_y': .50}
+            TextInput:
+                id : password
+                hint_text:"Password"
+                font_name:"MPoppins"
+                size_hint_y:.75
+                pos_hint: {'center_x': .43, 'center_y': .5}
+                background_color:1, 1, 1, 0
+                foreground_color:rgba (0, 0, 59, 255)
+                cursor_color: rgba(0, 0, 59, 255)
+                font_size:"14sp"
+                cursor_width:"2sp"
+                multitline: False
+                password:True
+            MDFloatLayout:
+                pos_hint: {'center_x': .45, 'center_y': 0}
+                size_hint_y: .03
+                md_bg_color: rgba(178, 178, 178, 255)
+        
+               
+        Button:
+            text:'LOGIN'
+            size_hint: .66,.065
+            pos_hint: {'center_x': .5, 'center_y': .18}
+            background_color:0,0,0,0
+            font_name:"BPoppins"
+            on_release: 
+                root.ButtonLogin()
+            canvas.before:
+                Color:
+                    rgb: rgba(52,0,231,255)
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [5]        
+
+<Register>
+    MDFloatLayout:
+        FitImage:
+            size_hint_y: 1
+            source: 'assets/background.png'
+        MDIconButton:
+            icon:"assets/tapLeft.png"
+            pos_hint: {'center_y': .95}
+            icon_size:"40sp"
+            on_release:
+                app.root.current = "Menu"
+        MDLabel:
+            text:"Registra-se"
+            font_name: 'MPoppins'
+            font_size: "26sp"
+            size_hint_x: .85
+            pos_hint: {'center_x':.5,'center_y': .85}
+            halign:"center"
+            color: rgba(0,0,59,255)
+        MDLabel:
+            text:"Faça o registro para jogar"
+            font_name: 'BPoppins'
+            font_size: "15sp"
+            pos_hint: {'center_x':.50,'center_y': .79}
+            halign:"center"
+            color: rgba(133,133,133,255)
+        MDFloatLayout:
+            size_hint: .7,.07
+            pos_hint: {'center_x': .5, 'center_y': .60}
+            TextInput:
+                id: email
+                hint_text:"Email"
+                font_name:"MPoppins"
+                size_hint_y:.75
+                pos_hint: {'center_x': .43, 'center_y': .5}
+                background_color:1, 1, 1, 0
+                foreground_color:rgba (0, 0, 59, 255)
+                cursor_color: rgba(0, 0, 59, 255)
+                font_size:"14sp"
+                cursor_width:"2sp"
+                multitline: False
+            MDFloatLayout:
+                pos_hint: {'center_x': .45, 'center_y': 0}
+                size_hint_y: .03
+                md_bg_color: rgba(178, 178, 178, 255)
+        MDFloatLayout:
+            size_hint: .7,.07
+            pos_hint: {'center_x': .5, 'center_y': .50}
+            TextInput:
+                id: login
+                hint_text:"Login"
+                font_name:"MPoppins"
+                size_hint_y:.75
+                pos_hint: {'center_x': .43, 'center_y': .5}
+                background_color:1, 1, 1, 0
+                foreground_color:rgba (0, 0, 59, 255)
+                cursor_color: rgba(0, 0, 59, 255)
+                font_size:"14sp"
+                cursor_width:"2sp"
+                multitline: False
+            MDFloatLayout:
+                pos_hint: {'center_x': .45, 'center_y': 0}
+                size_hint_y: .03
+                md_bg_color: rgba(178, 178, 178, 255)
+
+        MDFloatLayout:
+            size_hint: .7,.07
+            pos_hint: {'center_x': .5, 'center_y': .40}
+            TextInput:
+
+
+                id:password
+
+                hint_text:"Password"
+                font_name:"MPoppins"
+                size_hint_y:.75
+                pos_hint: {'center_x': .43, 'center_y': .5}
+                background_color:1, 1, 1, 0
+                foreground_color:rgba (0, 0, 59, 255)
+                cursor_color: rgba(0, 0, 59, 255)
+                font_size:"14sp"
+                cursor_width:"2sp"
+                multitline: False
+                password:True
+            MDFloatLayout:
+                pos_hint: {'center_x': .45, 'center_y': 0}
+                size_hint_y: .03
+                md_bg_color: rgba(178, 178, 178, 255)
+
+        MDLabel:
+            text:"Li e concordo com os termos"
+            font_name: 'BPoppins'
+            font_size: "10sp"
+            pos_hint: {'center_x':.5,'center_y': .30}
+            color: rgba(133,133,133,255)
+            halign:"center"
+
+        MDCheckbox:
+            size_hint: None, None
+            size: "48dp", "48dp"
+            pos_hint: {'right': .90, 'center_y': .30}
+            halign:"center"
+            on_active: root.on_checkbox_Active(self,self.active)
+               
+        Button:
+            text:'Registra-se'
+            size_hint: .66,.065
+            pos_hint: {'center_x': .5, 'center_y': .18}
+            background_color:0,0,0,0
+            font_name:"BPoppins"
+            on_release: 
+                root.ButtonLogin()
+            canvas.before:
+                Color:
+                    rgb: rgba(52,0,231,255)
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [5]        
+<MenuJogar>
+    MDFloatLayout:
+        FitImage:
+            size_hint_y: 1
+            source: 'assets/background.png'
+        
+        MDLabel:
+            text:"Bem vindo"
+            font_name: 'BPoppins'
+            font_size: "25sp"
+            pos_hint: {'center_x':.5,'center_y': .90}
+            color: rgba(133,133,133,255)
+            halign:"center"
+
+        MDIconButton:
+            icon:"assets/planeYellow2.png"
+            pos_hint: {'center_x':.3,'center_y': .70}
+            icon_size:"100sp"
+            on_release:
+                app.root.current = "SkinAviao"
+
+        MDLabel:
+            text:"Avioes"
+            font_name: 'BPoppins'
+            font_size: "15sp"
+            pos_hint: {'center_x':.3,'center_y': .70}
+            color: rgba(133,133,133,255)
+            halign:"center"
+
+        MDIconButton:
+            icon:"assets/planeYellow2.png"
+            pos_hint: {'center_x':.7,'center_y': .70}
+            icon_size:"100sp"
+            on_release:
+                app.root.current = "SkinMapa"
+
+        MDLabel:
+            text:"Mapas"
+            font_name: 'BPoppins'
+            font_size: "15sp"
+            pos_hint: {'center_x':.7,'center_y': .70}
+            color: rgba(133,133,133,255)
+            halign:"center"
+        
+        MDIconButton:
+            icon:"assets/medalBronze.png"
+            pos_hint: {'center_x':.5,'center_y': .40}
+            icon_size:"100sp"
+            
+
+        MDLabel:
+            text:"LEVEL"
+            font_name: 'BPoppins'
+            font_size: "15sp"
+            pos_hint: {'center_x':.5,'center_y': .40}
+            color: rgba(133,133,133,255)
+            halign:"center"
+
+        Button:
+            text:'JOGAR'
+            size_hint: .30,.065
+            pos_hint: {'center_x': .5, 'center_y': .18}
+            background_color:0,0,0,0
+            font_name:"BPoppins"
+            on_release: 
+                app.root.current = "Jogar"
+            canvas.before:
+                Color:
+                    rgb: rgba(52,0,231,255)
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [5]
+
+<SkinAviao>
+    MDFloatLayout:
+        FitImage:
+            size_hint_y: 1
+            source: 'assets/background.png'
+        
+        MDLabel:
+            text:"Selecione o avião"
+            font_name: 'BPoppins'
+            font_size: "25sp"
+            pos_hint: {'center_x':.5,'center_y': .90}
+            color: rgba(133,133,133,255)
+            halign:"center"
+
+        MDIconButton:
+            icon:"assets/planeYellow2.png"
+            pos_hint: {'center_x':.3,'center_y': .70}
+            icon_size:"100sp"
+            on_release:
+                app.root.current = "MenuJogar"
+
+
+        MDIconButton:
+            icon:"assets/planeBlue2.png"
+            pos_hint: {'center_x':.7,'center_y': .70}
+            icon_size:"100sp"
+            on_release:
+                app.root.current = "MenuJogar"
+
+        
+        MDIconButton:
+            icon:"assets/planeGreen1.png"
+            pos_hint: {'center_x':.3,'center_y': .50}
+            icon_size:"100sp"
+            on_release:
+                app.root.current = "MenuJogar"
+        
+        MDIconButton:
+            icon:"assets/planeRed2.png"
+            pos_hint: {'center_x':.7,'center_y': .50}
+            icon_size:"100sp"
+            on_release:
+                app.root.current = "MenuJogar"
+
+        Button:
+            text:'Menu'
+            size_hint: .30,.065
+            pos_hint: {'center_x': .5, 'center_y': .18}
+            background_color:0,0,0,0
+            font_name:"BPoppins"
+            on_release: 
+                app.root.current = "MenuJogar"
+            canvas.before:
+                Color:
+                    rgb: rgba(52,0,231,255)
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [5]
+
+<SkinMapa>
+    MDFloatLayout:
+        FitImage:
+            size_hint_y: 1
+            source: 'assets/background.png'
+        
+        MDLabel:
+            text:"Selecione o avião"
+            font_name: 'BPoppins'
+            font_size: "25sp"
+            pos_hint: {'center_x':.5,'center_y': .90}
+            color: rgba(133,133,133,255)
+            halign:"center"
+
+        MDIconButton:
+            icon:"assets/rockDown.png"
+            pos_hint: {'center_x':.2,'center_y': .75}
+            icon_size:"130sp"
+            on_release:
+                app.root.current = "MenuJogar"
+
+
+        MDIconButton:
+            icon:"assets/Metal.png"
+            pos_hint: {'center_x':.8,'center_y': .75}
+            icon_size:"130sp"
+            on_release:
+                app.root.current = "MenuJogar"
+
+        
+        MDIconButton:
+            icon:"assets/rockIce.png"
+            pos_hint: {'center_x':.2,'center_y': .35}
+            icon_size:"130sp"
+            on_release:
+                app.root.current = "MenuJogar"
+        
+        MDIconButton:
+            icon:"assets/rockSnow.png"
+            pos_hint: {'center_x':.8,'center_y': .35}
+            icon_size:"130sp"
+            on_release:
+                app.root.current = "MenuJogar"
+
+        Button:
+            text:'Menu'
+            size_hint: .30,.065
+            pos_hint: {'center_x': .5, 'center_y': .18}
+            background_color:0,0,0,0
+            font_name:"BPoppins"
+            on_release: 
+                app.root.current = "MenuJogar"
+            canvas.before:
+                Color:
+                    rgb: rgba(52,0,231,255)
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [5]
+
+<Jogar>
+    MDFloatLayout:
+        Label:
+            id: circular_progress
+            text: '0%'
+            color: (0,0,0,1)
+            
+            size_hint: None, None
+            width: 200
+            height: 200
+            
+            progress: 0
+            
+            pos_hint: {'center_x':.5, 'center_y':.6}
+            
+            canvas.before:
+                # Main ellipse as background
+                Color:
+                    rgba: (0,0,1,1)
+                Ellipse:
+                    size: self.size
+                    pos: self.pos
+                
+                # Pie Chart ellipse as progress
+                Color:
+                    rgba: (1,0,0,1)
+                Ellipse:
+                    size: self.size
+                    pos: self.pos
+                    angle_end: self.progress
+                
+                # small ellipse that cover the center of progress
+                Color:
+                    rgba: (1,1,1,1)
+                Ellipse:
+                    size: [self.width - 30 ,self.height - 30]
+                    pos: [(self.center_x - (self.width - 30)/2), (self.center_y - (self.height - 30)/2)]
+                    
+        Slider:
+            orientation: 'horizontal'
+            min: 0
+            max: 360
+            step: 1
+            
+            size_hint: None, None
+            width: 500
+            height: 200
+            
+            pos_hint: {'center_x':.5}
+            
+            on_value: root.controlTheProgress(*args)
